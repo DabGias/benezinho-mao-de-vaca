@@ -5,28 +5,38 @@ import br.com.fiap.fornecedor.model.Fornecedor;
 import java.time.LocalDateTime;
 
 public abstract class Produto {
-
+    private Long id;
     private String nome;
+    private int qtde;
+    private String desc;
+    private LocalDateTime dataFabricacao;
+    private Fornecedor fabricante;
 
-    private String descricao;
+    public Produto() {}
 
-    private double preco;
-
-    private LocalDateTime fabricacao;
-
-
-    private Fornecedor fornecedor;
-
-
-    public Produto() {
+    public Produto(Long id, String nome, int qtde, String desc, LocalDateTime dataFabricacao, Fornecedor fabricante) {
+        this.id = id;
+        this.nome = nome;
+        this.qtde = qtde;
+        this.desc = desc;
+        this.dataFabricacao = dataFabricacao;
+        this.fabricante = fabricante;
     }
 
-    public Produto(String nome, String descricao, double preco, LocalDateTime fabricacao, Fornecedor fornecedor) {
+    public Produto(String nome, int qtde, String desc, LocalDateTime dataFabricacao, Fornecedor fabricante) {
         this.nome = nome;
-        this.descricao = descricao;
-        this.preco = preco;
-        this.fabricacao = fabricacao;
-        this.fornecedor = fornecedor;
+        this.qtde = qtde;
+        this.desc = desc;
+        this.dataFabricacao = dataFabricacao;
+        this.fabricante = fabricante;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public String getNome() {
@@ -37,46 +47,47 @@ public abstract class Produto {
         this.nome = nome;
     }
 
-    public String getDescricao() {
-        return descricao;
+    public int getQtde() {
+        return qtde;
     }
 
-    public void setDescricao(String descricao) {
-        this.descricao = descricao;
+    public void setQtde(int qtde) {
+        this.qtde = qtde;
     }
 
-    public double getPreco() {
-        return preco;
+    public String getDesc() {
+        return desc;
     }
 
-    public void setPreco(double preco) {
-        this.preco = preco;
+    public void setDesc(String desc) {
+        this.desc = desc;
     }
 
-    public LocalDateTime getFabricacao() {
-        return fabricacao;
+    public LocalDateTime getDataFabricacao() {
+        return dataFabricacao;
     }
 
-    public void setFabricacao(LocalDateTime fabricacao) {
-        this.fabricacao = fabricacao;
+    public void setDataFabricacao(LocalDateTime dataFabricacao) {
+        this.dataFabricacao = dataFabricacao;
     }
 
-    public Fornecedor getFornecedor() {
-        return fornecedor;
+    public Fornecedor getFabricante() {
+        return fabricante;
     }
 
-    public void setFornecedor(Fornecedor fornecedor) {
-        this.fornecedor = fornecedor;
+    public void setFabricante(Fornecedor fabricante) {
+        this.fabricante = fabricante;
     }
 
     @Override
     public String toString() {
         return "Produto{" +
-                "nome='" + nome + '\'' +
-                ", descricao='" + descricao + '\'' +
-                ", preco=" + preco +
-                ", fabricacao=" + fabricacao +
-                ", fornecedor=" + fornecedor +
+                "id=" + id +
+                ", nome='" + nome + '\'' +
+                ", qtde=" + qtde +
+                ", desc='" + desc + '\'' +
+                ", dataFabricacao=" + dataFabricacao +
+                ", fabricante=" + fabricante +
                 '}';
     }
 }
